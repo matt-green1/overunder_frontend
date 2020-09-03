@@ -5,27 +5,98 @@ import MainContainer from './Containers/MainContainer'
 import NavBar from './Components/NavBar'
 import LoginForm from './Components/LoginForm'
 import Header from './Components/Header'
-import { Route, Switch } from 'react-router-dom'
+import { Route, Switch, withRouter } from 'react-router-dom'
 import UserProfile from './Components/UserProfile'
-import GameContainer from './Containers/GameContainer'
+import SignupForm from './Components/SignupForm'
+
 
 //remember - install react router dom with: npm install react-router-dom
 
-function App() {
-  return (
-    <>
-      {/* this is where Tashawn had Navbar but maybe we should hide it until someone logs in? */}
-      <NavBar />
-      <Header />
+class App extends React.Component {
+  
+  state = {
+    currentUser : null
+  }
+
+  loginHandler = (userInfo) => {
       
-      <Switch>
-          <Route path="/postlogin" render={() => <MainContainer /> } />
-          <Route path="/users/1" render={() => <UserProfile /> } />
-          <Route path="/newgame" render={() => <GameContainer /> } />
-          <Route path="/" render={() => <LoginForm/> } />
-      </Switch>
-    </>
-  );
+      let configObj = {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json',
+        },
+        body: JSON.stringify({user: userInfo})
+      }   
+
+      
+      fetch('http://localhost:3000/api/v1/login', configObj)
+        .then(response => response.json())
+        .then(data => this.setState({currentUser: data.user }, ()=> this.props.history.push("/")))
+    
+   }
+
+    createHandler = (userInfo) => {
+      
+        let configObj = {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json',
+          },
+          body: JSON.stringify({user: userInfo})
+        }   
+
+        
+        fetch('http://localhost:3000/api/v1/new', configObj)
+          .then(response => response.json())
+          .then(data => this.setState({currentUser: data.user }), ()=> console.log(this.props))
+  
+    }
+
+
+  render() {
+    //console.log(this.state.currentUser)  
+    return (
+        <>
+          <NavBar currentUser={this.state.currentUser} />
+          <Header />
+          
+          <Switch>
+              {this.state.currentUser 
+                ? 
+                <>
+                  <Route path="/" render={() => <MainContainer /> } />
+                  <Route path="/user" render={() => <UserProfile /> } />
+                </>
+                :
+                <>
+                  <Route exact path="/login" render={() => <LoginForm loginHandler={this.loginHandler} /> } />              
+                  <Route exact path="/" render={() => <SignupForm createHandler={this.createHandler}/> } />
+                </>
+              }
+              
+          </Switch>
+        </>
+      );
+  }
 }
 
-export default App;
+export default withRouter(App);
+
+
+{/* <Switch>
+              {this.state.currentUser 
+                ? 
+                <>
+                  <Route path="/" render={() => <MainContainer /> } />
+                  <Route path="/user" render={() => <UserProfile /> } />
+                </>
+                :
+                <>
+                  <Route exact path="/login" render={() => <LoginForm loginHandler={this.loginHandler} /> } />              
+                  <Route exact path="/" render={() => <SignupForm createHandler={this.createHandler}/> } />
+                </>
+              }
+              
+          </Switch> */}

@@ -1,18 +1,29 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
 
-function NavBar() {
+function NavBar(props) {
     return (
         <ul>
-            <NavLink to="/">
-                <li>Log in/out?</li>
-            </NavLink>
+            {props.currentUser ? 
             
             <NavLink to="/">
-                <li>New Game</li>
+                <li>Log in</li>
+            </NavLink>
+            
+            :    
+                
+            <NavLink to="/">
+                <li>Log Out</li>
             </NavLink>
 
-            <NavLink to="/">
+            }
+
+
+            {/* <NavLink to="/newgame">
+                <li>New Game</li>
+            </NavLink> */}
+
+            <NavLink to="/users/1">
                 <li>Profile</li>
             </NavLink>
         </ul>
