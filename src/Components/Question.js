@@ -5,9 +5,10 @@ class Question extends React.Component {
         return (
             <>
                 <br/><br/><br/><br/><br/>
-                <h3>Note: Below Question component that will only be rendered when you click the button on the gameCard</h3>
-                <p>Question + Image</p>
-                <button>Next question</button>
+                <img src={this.props.questionObject.img_url}/>
+                <p>{this.props.questionObject.question}</p>
+                <p>Over Under line: {this.props.questionObject.over_under_line}</p>
+                <button onClick={this.props.nextHelper}>Next question</button>
             </>
         )
     }

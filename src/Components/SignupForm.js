@@ -6,7 +6,8 @@ class SignupForm extends React.Component {
 
     state = {
         username: "",
-        password: ""
+        password: "",
+        total_score : 0
     }
 
     changeHelper = (e) => {

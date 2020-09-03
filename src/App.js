@@ -18,6 +18,10 @@ class App extends React.Component {
     currentUser : null
   }
 
+  clearUser = () => {
+    this.setState({currentUser: null}, () => this.props.history.push("/"))
+  }
+
   loginHandler = (userInfo) => {
       
       let configObj = {
@@ -32,12 +36,12 @@ class App extends React.Component {
       
       fetch('http://localhost:3000/api/v1/login', configObj)
         .then(response => response.json())
-        .then(data => this.setState({currentUser: data.user }, ()=> this.props.history.push("/")))
+        .then(data => this.setState({currentUser: data.user }, ()=> this.props.history.push("/home")))
     
    }
 
     createHandler = (userInfo) => {
-      
+        
         let configObj = {
           method: 'POST',
           headers: {
@@ -50,8 +54,7 @@ class App extends React.Component {
         
         fetch('http://localhost:3000/api/v1/new', configObj)
           .then(response => response.json())
-          .then(data => this.setState({currentUser: data.user }), ()=> console.log(this.props))
-  
+          .then(data => this.setState({currentUser: data.user }, ()=> this.props.history.push("/home")))
     }
 
 
@@ -59,15 +62,15 @@ class App extends React.Component {
     //console.log(this.state.currentUser)  
     return (
         <>
-          <NavBar currentUser={this.state.currentUser} />
+          <NavBar clearUser={this.clearUser} currentUser={this.state.currentUser} />
           <Header />
           
           <Switch>
               {this.state.currentUser 
                 ? 
                 <>
-                  <Route path="/" render={() => <MainContainer /> } />
-                  <Route path="/user" render={() => <UserProfile /> } />
+                  <Route path="/home" render={() => <MainContainer currentUser={this.state.currentUser} /> } />
+                  <Route path={`/user/${this.state.currentUser.id}`} render={() => <UserProfile currentUser={this.state.currentUser} /> } />
                 </>
                 :
                 <>

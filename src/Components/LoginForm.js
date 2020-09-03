@@ -19,11 +19,13 @@ class LoginForm extends React.Component {
         this.props.loginHandler(this.state)
     }
 
+    goToSignup = () => {
+        this.props.history.push("/")
+    }
+
     render(){
         return(
             <>
-                
-                <p>Log in Form!</p>
                 
                 <h6>Log In:</h6>
                 <form onSubmit={this.submitHelper}>
@@ -32,6 +34,8 @@ class LoginForm extends React.Component {
                     <input type="submit" value="Log in"/>
                 </form>
         
+                <p>Don't have an Account?</p>
+                <button onClick={this.goToSignup}>Sign Up Here</button>
             </>
         )
     }

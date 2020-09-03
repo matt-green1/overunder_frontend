@@ -2,30 +2,42 @@ import React from 'react'
 import { NavLink } from 'react-router-dom'
 
 function NavBar(props) {
+
     return (
         <ul>
             {props.currentUser ? 
             
-            <NavLink to="/">
-                <li>Log in</li>
-            </NavLink>
-            
-            :    
+                <>
+                    <a onClick={props.clearUser} > 
+                        <li>Log Out</li>
+                    </a>
                 
-            <NavLink to="/">
-                <li>Log Out</li>
-            </NavLink>
-
+                    <NavLink to={`/user/${props.currentUser.id}`}>
+                        <li>Profile</li>
+                    </NavLink>
+                </>
+            :   
+                    <>
+                        {window.location.pathname === "/login" ?
+                        
+                        
+                            <NavLink to="/">
+                                <li>Create Account</li>
+                            </NavLink>
+                        
+                            :
+                            
+                            <NavLink to="/login">
+                                <li>Log In</li>
+                            </NavLink>
+                        }
+                    </>
             }
-
 
             {/* <NavLink to="/newgame">
                 <li>New Game</li>
             </NavLink> */}
 
-            <NavLink to="/users/1">
-                <li>Profile</li>
-            </NavLink>
         </ul>
     )
 
