@@ -14,7 +14,8 @@ import SignupForm from './Components/SignupForm'
 class App extends React.Component {
   
   state = {
-    currentUser : null
+    currentUser : null,
+    userRounds: []
   }
 
   clearUser = () => {
@@ -38,7 +39,7 @@ class App extends React.Component {
         .then(response => response.json())
         .then(data => {
           localStorage.setItem("token", data.jwt)
-          this.setState({currentUser: data.user }, ()=> this.props.history.push("/home"))
+          this.setState({currentUser: data.user, userRounds: data.user.rounds }, ()=> this.props.history.push("/games"))
         })
     
    }
@@ -59,7 +60,7 @@ class App extends React.Component {
           .then(response => response.json())
           .then(data => {
             localStorage.setItem("token", data.jwt)
-            this.setState({currentUser: data.user }, ()=> this.props.history.push("/home"))
+            this.setState({currentUser: data.user }, ()=> this.props.history.push("/games"))
           })
     }
 
@@ -71,12 +72,36 @@ class App extends React.Component {
           method: "GET",
           headers: {Authorization: `Bearer ${token}`}
         }).then(res => res.json())
-          .then(user => this.setState({currentUser: user.user}))
+          .then(user => this.setState({currentUser: user.user }))
+          //need to find a way to refresh and maintain rounds
 
       } else {
         this.props.history.push("/")
       }
 
+    }
+
+      newRound = (newScore, game) => {
+      
+      const options = {
+        method: "POST",
+        headers: {
+          "content-type": "application/json",
+          "accept": "application/json"
+          //extra header here for jwt?
+        },
+        body: JSON.stringify({
+          user_id: parseInt(this.state.currentUser.id),
+          game_id: parseInt(game.id),
+          round_score: parseInt(newScore)
+        })
+      }
+
+      fetch('http://localhost:3000/api/v1/rounds', options)
+      .then(res => res.json())
+      .then(newRound => this.setState({userRounds: [...this.state.userRounds, newRound]})
+      )
+      
     }
 
 
@@ -91,8 +116,8 @@ class App extends React.Component {
               {this.state.currentUser 
                 ? 
                 <>
-                  <Route path="/games" render={() => <MainContainer currentUser={this.state.currentUser} /> } />
-                  <Route path={`/user/${this.state.currentUser.id}`} render={() => <UserProfile currentUser={this.state.currentUser} /> } />
+                  <Route path="/games" render={() => <MainContainer currentUser={this.state.currentUser} newRound={this.newRound}/> } />
+                  <Route path={`/user/${this.state.currentUser.id}`} render={() => <UserProfile userRounds={this.state.userRounds} currentUser={this.state.currentUser} /> } />
                 </>
                 :
                 <>

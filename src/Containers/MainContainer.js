@@ -34,7 +34,7 @@ class MainContainer extends React.Component {
         return(
             <>
                 {this.state.newgame ?
-                    <GameShow viewGames={this.viewGames} newgame={this.state.newgame} />
+                    <GameShow newRound={this.props.newRound} viewGames={this.viewGames} newgame={this.state.newgame} />
                     :
                     <GameContainer startGame={this.startGame} gamesArray={this.state.gamesArray} newgameHelper={this.newgameHelper} /> 
                 }

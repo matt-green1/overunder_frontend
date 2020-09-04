@@ -3,7 +3,8 @@ import React from 'react'
 class Question extends React.Component {
     
     state ={
-        answered: false
+        answered: false,
+        correct: null
     }
 
     qHandler = (e) => {
@@ -17,12 +18,23 @@ class Question extends React.Component {
 
         if (e.target.innerText === questionAnswer) {
           right = true
+          this.props.scoreBoss(right)
+          this.setState({
+            answered: true,
+            correct: true
+          })
+
         } else {
           right = false
+          this.props.scoreBoss(right)
+          this.setState({
+            answered: true,
+            correct: false
+          })
+
         }
         
-        this.props.scoreBoss(right)
-        this.setState({answered: true})
+        
     }
     
     
@@ -40,11 +52,25 @@ class Question extends React.Component {
             </>
             :   
             <>
-                <img src={this.props.questionObject.img_url} alt={this.props.questionObject.question}/>
-                <p>{this.props.questionObject.question}</p>
-                <p>Over Under line: {this.props.questionObject.over_under_line}</p>
-                <p>Answer: {this.props.questionObject.answer}</p>
-                <button onClick={this.props.nextHelper}>Next question</button>
+              {this.state.correct ? 
+                <>
+                  <img src={this.props.questionObject.img_url} alt={this.props.questionObject.question}/>
+                  <p>{this.props.questionObject.question}</p>
+                  <p>Over Under line: {this.props.questionObject.over_under_line}</p>
+                  <p>Answer: {this.props.questionObject.answer}</p>
+                  <p>Correct!</p>
+                  <button onClick={this.props.nextHelper}>Next question</button>
+                </>
+              :
+                <>
+                  <img src={this.props.questionObject.img_url} alt={this.props.questionObject.question}/>
+                  <p>{this.props.questionObject.question}</p>
+                  <p>Over Under line: {this.props.questionObject.over_under_line}</p>
+                  <p>Answer: {this.props.questionObject.answer}</p>
+                  <p>Wrong!</p>
+                  <button onClick={this.props.nextHelper}>Next question</button>
+                </>
+              }
             </>
             }
             </>

@@ -37,7 +37,7 @@ class GameShow extends React.Component {
         this.setState({questionNum : this.state.questionNum + 1})
        
         if (this.state.questionNum === this.props.newgame.questions.length - 1) {
-          this.setState({...this.state, liveGame: false})
+          this.setState({...this.state, liveGame: false}, () => this.props.newRound(this.state.totalScore, this.props.newgame))
         } else {
 
         }
