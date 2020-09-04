@@ -4,7 +4,7 @@ import GameCard from '../Components/GameCard'
 class GameContainer extends React.Component {
 
     createGameCards = () => {
-        return this.props.gamesArray.map(gameObj => <GameCard startGame={this.props.startGame} gameObject={gameObj} />)
+        return this.props.gamesArray.map(gameObj => <GameCard key={gameObj.id} startGame={this.props.startGame} gameObject={gameObj} />)
     }
 
     render() {

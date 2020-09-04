@@ -1,7 +1,7 @@
 //Wasn't sure if we put both sign up and log in on same form or have them separated out
 
 import React from 'react'
-import { Route, Switch, withRouter } from 'react-router-dom'
+import {withRouter } from 'react-router-dom'
 
 class LoginForm extends React.Component {
 

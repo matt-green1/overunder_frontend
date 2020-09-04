@@ -17,7 +17,7 @@ class GameCard extends React.Component {
                 <>
                     <br/><br/><br/>
                     <h3>{this.props.gameObject.title}</h3>
-                    <img src={this.props.gameObject.image_url} />
+                    <img src={this.props.gameObject.image_url} alt={this.props.gameObject.title} />
                     <p>{this.props.gameObject.description}</p>
 
                     <button onClick={this.startHelper} >~ Play Game ~</button>

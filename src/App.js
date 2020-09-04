@@ -1,5 +1,4 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
 import MainContainer from './Containers/MainContainer'
 import NavBar from './Components/NavBar'
@@ -19,6 +18,7 @@ class App extends React.Component {
   }
 
   clearUser = () => {
+    localStorage.removeItem("token")
     this.setState({currentUser: null}, () => this.props.history.push("/"))
   }
 
@@ -36,7 +36,10 @@ class App extends React.Component {
       
       fetch('http://localhost:3000/api/v1/login', configObj)
         .then(response => response.json())
-        .then(data => this.setState({currentUser: data.user }, ()=> this.props.history.push("/home")))
+        .then(data => {
+          localStorage.setItem("token", data.jwt)
+          this.setState({currentUser: data.user }, ()=> this.props.history.push("/home"))
+        })
     
    }
 
@@ -54,12 +57,31 @@ class App extends React.Component {
         
         fetch('http://localhost:3000/api/v1/new', configObj)
           .then(response => response.json())
-          .then(data => this.setState({currentUser: data.user }, ()=> this.props.history.push("/home")))
+          .then(data => {
+            localStorage.setItem("token", data.jwt)
+            this.setState({currentUser: data.user }, ()=> this.props.history.push("/home"))
+          })
+    }
+
+    componentDidMount() {
+      const token = localStorage.getItem("token")
+
+      if (token) {
+        fetch('http://localhost:3000/api/v1/profile', {
+          method: "GET",
+          headers: {Authorization: `Bearer ${token}`}
+        }).then(res => res.json())
+          .then(user => this.setState({currentUser: user.user}))
+
+      } else {
+        this.props.history.push("/")
+      }
+
     }
 
 
   render() {
-    //console.log(this.state.currentUser)  
+    
     return (
         <>
           <NavBar clearUser={this.clearUser} currentUser={this.state.currentUser} />
@@ -69,7 +91,7 @@ class App extends React.Component {
               {this.state.currentUser 
                 ? 
                 <>
-                  <Route path="/home" render={() => <MainContainer currentUser={this.state.currentUser} /> } />
+                  <Route path="/games" render={() => <MainContainer currentUser={this.state.currentUser} /> } />
                   <Route path={`/user/${this.state.currentUser.id}`} render={() => <UserProfile currentUser={this.state.currentUser} /> } />
                 </>
                 :
@@ -87,19 +109,3 @@ class App extends React.Component {
 
 export default withRouter(App);
 
-
-{/* <Switch>
-              {this.state.currentUser 
-                ? 
-                <>
-                  <Route path="/" render={() => <MainContainer /> } />
-                  <Route path="/user" render={() => <UserProfile /> } />
-                </>
-                :
-                <>
-                  <Route exact path="/login" render={() => <LoginForm loginHandler={this.loginHandler} /> } />              
-                  <Route exact path="/" render={() => <SignupForm createHandler={this.createHandler}/> } />
-                </>
-              }
-              
-          </Switch> */}

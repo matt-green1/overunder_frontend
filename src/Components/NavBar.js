@@ -8,12 +8,15 @@ function NavBar(props) {
             {props.currentUser ? 
             
                 <>
-                    <a onClick={props.clearUser} > 
-                        <li>Log Out</li>
-                    </a>
+                     
+                        <li onClick={props.clearUser}>Log Out</li>
+                    
                 
                     <NavLink to={`/user/${props.currentUser.id}`}>
                         <li>Profile</li>
+                    </NavLink>
+                    <NavLink to="/games">
+                        <li>All Games</li>
                     </NavLink>
                 </>
             :   
@@ -33,10 +36,6 @@ function NavBar(props) {
                         }
                     </>
             }
-
-            {/* <NavLink to="/newgame">
-                <li>New Game</li>
-            </NavLink> */}
 
         </ul>
     )

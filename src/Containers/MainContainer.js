@@ -1,6 +1,6 @@
 import React from 'react'
 import GameContainer from './GameContainer'
-import { Route, Switch, withRouter } from 'react-router-dom'
+import {withRouter} from 'react-router-dom'
 import GameShow from '../Components/GameShow'
 
 class MainContainer extends React.Component {
@@ -24,14 +24,18 @@ class MainContainer extends React.Component {
         this.setState({...this.state, newgame: gameObj})
     }
 
+    viewGames = (e) => {
+        this.setState({...this.state, newgame: null})
+    }
+
 
     render() {
+        
         return(
             <>
                 {this.state.newgame ?
-                    <GameShow newgame={this.state.newgame} />
+                    <GameShow viewGames={this.viewGames} newgame={this.state.newgame} />
                     :
-                    
                     <GameContainer startGame={this.startGame} gamesArray={this.state.gamesArray} newgameHelper={this.newgameHelper} /> 
                 }
             </>
