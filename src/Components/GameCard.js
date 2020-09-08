@@ -2,6 +2,7 @@
 //GameCard could also be called Question container
 
 import React from 'react'
+import { Card, Button, Image } from 'semantic-ui-react'
 
 
 //note: made state here just so the app doesn't break - the questions will come from props that come from the API call higher up
@@ -15,12 +16,22 @@ class GameCard extends React.Component {
     render() {
             return(
                 <>
-                    <br/><br/><br/>
-                    <h3>{this.props.gameObject.title}</h3>
-                    <img src={this.props.gameObject.image_url} alt={this.props.gameObject.title} />
-                    <p>{this.props.gameObject.description}</p>
-
-                    <button onClick={this.startHelper} >~ Play Game ~</button>
+                     <Card>
+                        <Image src={this.props.gameObject.image_url} wrapped ui={false} />
+                        <Card.Content>
+                        <Card.Header>{this.props.gameObject.title}</Card.Header>
+                        <Card.Meta>
+                            <span className='date'>Created in 2020</span>
+                        </Card.Meta>
+                        <Card.Description>
+                        {this.props.gameObject.description}
+                        </Card.Description>
+                        </Card.Content>
+                        <Card.Content extra>
+                            <Button onClick={this.startHelper}>~ Play Game ~</Button>
+                        </Card.Content>
+                    </Card>
+                    
                 </>
             )
         }

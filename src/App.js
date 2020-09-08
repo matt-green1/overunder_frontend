@@ -7,6 +7,7 @@ import Header from './Components/Header'
 import { Route, Switch, withRouter } from 'react-router-dom'
 import UserProfile from './Components/UserProfile'
 import SignupForm from './Components/SignupForm'
+import TopScores from './Components/TopScores'
 
 
 //remember - install react router dom with: npm install react-router-dom
@@ -20,7 +21,9 @@ class App extends React.Component {
 
   clearUser = () => {
     localStorage.removeItem("token")
-    this.setState({currentUser: null}, () => this.props.history.push("/"))
+    this.setState({currentUser: null,
+                  userRounds: []
+    }, () => this.props.history.push("/"))
   }
 
   loginHandler = (userInfo) => {
@@ -39,6 +42,7 @@ class App extends React.Component {
         .then(response => response.json())
         .then(data => {
           localStorage.setItem("token", data.jwt)
+          //localStorage.setItem("rounds", data.user.rounds)
           this.setState({currentUser: data.user, userRounds: data.user.rounds }, ()=> this.props.history.push("/games"))
         })
     
@@ -66,13 +70,19 @@ class App extends React.Component {
 
     componentDidMount() {
       const token = localStorage.getItem("token")
-
+      
       if (token) {
         fetch('http://localhost:3000/api/v1/profile', {
           method: "GET",
           headers: {Authorization: `Bearer ${token}`}
         }).then(res => res.json())
-          .then(user => this.setState({currentUser: user.user }))
+          .then(user => {
+            this.setState(
+              {currentUser: user.user,
+              userRounds: user.user.rounds}
+              )
+          }
+          )
           //need to find a way to refresh and maintain rounds
 
       } else {
@@ -118,6 +128,7 @@ class App extends React.Component {
                 <>
                   <Route path="/games" render={() => <MainContainer currentUser={this.state.currentUser} newRound={this.newRound}/> } />
                   <Route path={`/user/${this.state.currentUser.id}`} render={() => <UserProfile userRounds={this.state.userRounds} currentUser={this.state.currentUser} /> } />
+                  <Route path={"/topscores"} render={() => <TopScores />}/>
                 </>
                 :
                 <>

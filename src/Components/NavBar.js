@@ -18,6 +18,9 @@ function NavBar(props) {
                     <NavLink to="/games">
                         <li>All Games</li>
                     </NavLink>
+                    <NavLink to="/topscores">
+                        <li>Top Scores</li>
+                    </NavLink>
                 </>
             :   
                     <>
