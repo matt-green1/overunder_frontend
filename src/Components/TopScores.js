@@ -39,14 +39,29 @@ class TopScores extends React.Component {
     render() {
         
         return(
-            <>
+            <div className="scores">
                 <h1>Top Scores</h1>
-                <ol>   
-                    {this.state.users.slice(0,10).map(user => {
-                      return  <li key={user.index}>Name: {user.name} - Score: {user.score}</li>
-                    })}
-                </ol>
-            </>
+                <table  id="center" className="ui very basic collapsing celled table">
+                    <thead>
+                        <tr>
+                            <th>Place</th>
+                            <th>Name</th>
+                            <th>Score</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {this.state.users.slice(0,10).map((user, index)=> {
+                        return(
+                            <tr key={user.index}>
+                                <td>{index + 1}</td>
+                                <td>{user.name}</td>
+                                <td>{user.score}</td>
+                            </tr>
+                        )
+                        })}
+                    </tbody>
+                </table>
+            </div>
         )
     }
 }

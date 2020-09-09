@@ -1,41 +1,55 @@
 import React from 'react'
-import { NavLink } from 'react-router-dom'
+// import { NavLink, withRouter } from 'react-router-dom'
+import {Menu, Segment} from 'semantic-ui-react'
 
 function NavBar(props) {
-
+    console.log(props.currentUser)
     return (
+        
         <ul>
             {props.currentUser ? 
             
                 <>
-                     
-                        <li onClick={props.clearUser}>Log Out</li>
+                    <Segment className='ui top fixed menu' inverted> 
+                        <Menu inverted pointing secondary>
+                            <Menu.Item name='Log Out' onClick={props.clearUser} />
+                            <Menu.Item name='Profile' href={`/user/${props.currentUser.id}`} />
+                            <Menu.Item name='All Games' href='/games' />
+                            <Menu.Item name='Top Scores' href='/topscores' />
+                        </Menu>
+                        <Menu className="right menu" inverted>
+                            <Menu.Item><i className="hand point up outline icon"></i>Over/Under&nbsp;<i className="hand point down outline icon"></i></Menu.Item>
+                        </Menu>
+                     </Segment>
                     
-                
-                    <NavLink to={`/user/${props.currentUser.id}`}>
-                        <li>Profile</li>
-                    </NavLink>
-                    <NavLink to="/games">
-                        <li>All Games</li>
-                    </NavLink>
-                    <NavLink to="/topscores">
-                        <li>Top Scores</li>
-                    </NavLink>
                 </>
             :   
                     <>
-                        {window.location.pathname === "/login" ?
-                        
-                        
-                            <NavLink to="/">
-                                <li>Create Account</li>
-                            </NavLink>
-                        
+                        {window.location.pathname === '/' ?
+                          
+                            <Segment className='ui top fixed menu' inverted>
+
+                                <Menu inverted pointing secondary>
+                                    <Menu.Item name='Log In' href='/login' />
+                                </Menu>
+
+
+                                <Menu className="right menu" inverted>
+                                    <Menu.Item><i className="hand point up outline icon"></i>Over/Under&nbsp;<i className="hand point down outline icon"></i></Menu.Item>
+
+                                </Menu>
+                            </Segment>
                             :
-                            
-                            <NavLink to="/login">
-                                <li>Log In</li>
-                            </NavLink>
+
+                            <Segment className='ui top fixed menu' inverted>
+                                <Menu inverted pointing secondary>
+                                    <Menu.Item name='Create Account' href='/' />
+                                </Menu>
+
+                                <Menu className="right menu" inverted>
+                                    <Menu.Item><i className="hand point up outline icon"></i>Over/Under&nbsp;<i className="hand point down outline icon"></i></Menu.Item>
+                                </Menu>
+                            </Segment>
                         }
                     </>
             }

@@ -1,5 +1,7 @@
 import React from 'react'
 import GameCard from '../Components/GameCard'
+import { Card } from 'semantic-ui-react'
+
 
 class GameContainer extends React.Component {
 
@@ -10,8 +12,11 @@ class GameContainer extends React.Component {
     render() {
         return (
             <>
-                <h3>I'm the Game Container (I Hold ALLLLLL the games!) </h3>
-                {this.createGameCards()}
+                    <h3 className="gametitle">I'm the Game Container (I Hold ALLLLLL the games!) </h3>
+                <Card.Group centered>
+                    {this.createGameCards()}
+
+                </Card.Group>
                 
             </>
         )

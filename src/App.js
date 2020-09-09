@@ -132,8 +132,8 @@ class App extends React.Component {
                 </>
                 :
                 <>
-                  <Route exact path="/login" render={() => <LoginForm loginHandler={this.loginHandler} /> } />              
                   <Route exact path="/" render={() => <SignupForm createHandler={this.createHandler}/> } />
+                  <Route path="/login" render={() => <LoginForm loginHandler={this.loginHandler} /> } />              
                 </>
               }
               

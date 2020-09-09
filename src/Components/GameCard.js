@@ -5,6 +5,7 @@ import React from 'react'
 import { Card, Button, Image } from 'semantic-ui-react'
 
 
+
 //note: made state here just so the app doesn't break - the questions will come from props that come from the API call higher up
 
 class GameCard extends React.Component {
@@ -16,7 +17,7 @@ class GameCard extends React.Component {
     render() {
             return(
                 <>
-                     <Card>
+                     <Card className="gamecards">
                         <Image src={this.props.gameObject.image_url} wrapped ui={false} />
                         <Card.Content>
                         <Card.Header>{this.props.gameObject.title}</Card.Header>

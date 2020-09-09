@@ -1,6 +1,18 @@
 .App {
   text-align: center;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 2rem;
 }
+
+/* div .ui.pointing.secondary.menu {
+  margin-left: 0;
+} */
+
+.right {
+  float: right;
+}
+
 
 .App-logo {
   height: 40vmin;
@@ -36,3 +48,48 @@
     transform: rotate(360deg);
   }
 }
+
+.ui.container {
+  overflow: auto;
+  white-space: nowrap;
+  
+}
+
+.ui.card.gamecards {
+  display: inline-block;
+  margin: 10px 10px;
+}
+
+.gametitle {
+  display: block;
+  text-align: center;
+}
+
+
+.ui.card.questioncards {
+  display: block;
+  margin-top: 50px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.ui.card.profilecards {
+  display: block;
+  margin-top: 50px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.scores {
+  text-align: center;
+}
+
+#center {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* .ui.very.basic.collapsing.celled.table {
+  text-align: center;
+} */
+

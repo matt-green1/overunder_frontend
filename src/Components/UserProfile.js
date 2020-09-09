@@ -1,4 +1,5 @@
 import React from 'react'
+import { Card, Icon, Image } from 'semantic-ui-react'
 
 function UserProfile(props) {
     let average
@@ -16,11 +17,26 @@ function UserProfile(props) {
     
     return (
         <>
-            <p>I am the user profile. I am simple and ugly now but I will one day cool and beautiful.</p>
-            <h5>Name: {props.currentUser.username}</h5>
-            <h5>Total Score: {average.toFixed(2)}</h5>
+            <Card className='profilecards'>
+                <Image src='https://react.semantic-ui.com/images/avatar/large/daniel.jpg' wrapped ui={false} />
+                <Card.Content>
+                <Card.Header>{props.currentUser.username}</Card.Header>
+                <Card.Meta>Joined in 2020</Card.Meta>
+                <Card.Description>
+                    Average Score: {average.toFixed(2)}
+                </Card.Description>
+                </Card.Content>
+                <Card.Content extra>
+                
+                    <Icon name='user' />
+                    Title: Yung Gamer
+                
+                </Card.Content>
+            </Card>
+            {/* <h5>Name: {props.currentUser.username}</h5>
+            <h5>Average Score: {average.toFixed(2)}</h5> */}
             {/* <h5>All time Ranking: 5</h5> */}
-            <h5>Title: Yung Gamer</h5>
+            {/* <h5>Title: Yung Gamer</h5> */}
         </>
     )
 

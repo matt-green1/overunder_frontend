@@ -44,7 +44,7 @@ class Question extends React.Component {
             <>
             {this.state.answered === false ? 
             <>
-              <Card >
+              <Card className='questioncards'>
               <Image src={this.props.questionObject.img_url} wrapped ui={false} />
               <Card.Content>
                 <Card.Header>{this.props.questionObject.question}</Card.Header>
@@ -76,7 +76,7 @@ class Question extends React.Component {
             <>
               {this.state.correct ? 
                 <>
-                  <Card>
+                  <Card className='questioncards'>
                     <Image src={this.props.questionObject.img_url} wrapped ui={false} />
                     <Card.Content>
                       <Card.Header>{this.props.questionObject.question}</Card.Header>
@@ -102,7 +102,7 @@ class Question extends React.Component {
                 </>
               :
                 <>
-                  <Card>
+                  <Card className='questioncards'>
                     <Image src={this.props.questionObject.img_url} wrapped ui={false} />
                     <Card.Content>
                       <Card.Header>{this.props.questionObject.question}</Card.Header>
