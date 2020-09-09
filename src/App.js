@@ -152,6 +152,23 @@ class App extends React.Component {
           //push to a different location --create user page
       }
 
+      editHandler = (avatarString) => {
+        console.log(avatarString)
+        const options = {
+          method: 'PATCH',
+          headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json',
+          },
+          body: JSON.stringify({avatar: avatarString})
+        }
+
+        fetch(`http://localhost:3000/api/v1/users/${this.state.currentUser.id}`, options)
+          .then(response => response.json())
+          .then(updatedUser => this.setState({...this.state, currentUser: updatedUser}))
+
+      }
+
   render() {
     
     return (
@@ -164,7 +181,7 @@ class App extends React.Component {
                 ? 
                 <>
                   <Route path="/games" render={() => <MainContainer currentUser={this.state.currentUser} newRound={this.newRound}/> } />
-                  <Route path={`/user/${this.state.currentUser.id}`} render={() => <UserProfile deleteHandler={this.deleteHandler} userRounds={this.state.userRounds} currentUser={this.state.currentUser} /> } />
+                  <Route path={`/user/${this.state.currentUser.id}`} render={() => <UserProfile editHandler={this.editHandler} deleteHandler={this.deleteHandler} userRounds={this.state.userRounds} currentUser={this.state.currentUser} /> } />
                   <Route path={"/topscores"} render={() => <TopScores />}/>
                 </>
                 :

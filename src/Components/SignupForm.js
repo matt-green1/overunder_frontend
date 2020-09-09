@@ -6,7 +6,8 @@ class SignupForm extends React.Component {
 
     state = {
         username: "",
-        password: ""
+        password: "",
+        avatar: ""
     }
 
     changeHelper = (e) => {
@@ -27,8 +28,9 @@ class SignupForm extends React.Component {
             <>
                 <h6>Create Account:</h6>
                 <form onSubmit={this.submitHelper}>
-                    <input name="username" type="text" placeholder="Create Username" value={this.state.newname} onChange={this.changeHelper} />
-                    <input name="password" type="text" placeholder="Create Password" value={this.state.newpw} onChange={this.changeHelper} />
+                    <input name="username" type="text" placeholder="Create Username" value={this.state.username} onChange={this.changeHelper} />
+                    <input name="password" type="text" placeholder="Create Password" value={this.state.password} onChange={this.changeHelper} />
+                    <input name="avatar" type="text" placeholder="Input Image Url" value={this.state.avatar} onChange={this.changeHelper} />
                     <input type="submit" value="Sign Up"/>
                 </form>            
           
