@@ -1,5 +1,5 @@
 import React from 'react'
-import { Card, Icon, Image } from 'semantic-ui-react'
+import { Card, Icon, Image, Button } from 'semantic-ui-react'
 
 function UserProfile(props) {
     let average
@@ -14,7 +14,7 @@ function UserProfile(props) {
     } else {
         average = 0
     }
-    
+
     return (
         <>
             <Card className='profilecards'>
@@ -26,11 +26,9 @@ function UserProfile(props) {
                     Average Score: {average.toFixed(2)}
                 </Card.Description>
                 </Card.Content>
-                <Card.Content extra>
-                
-                    <Icon name='user' />
-                    Title: Yung Gamer
-                
+                <Card.Content extra>   
+                    <Button circular >Edit</Button>
+                    <Button onClick={props.deleteHandler}   circular >Delete Account</Button>
                 </Card.Content>
             </Card>
             {/* <h5>Name: {props.currentUser.username}</h5>

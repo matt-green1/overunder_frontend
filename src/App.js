@@ -41,12 +41,23 @@ class App extends React.Component {
       fetch('http://localhost:3000/api/v1/login', configObj)
         .then(response => response.json())
         .then(data => {
+          if (data.error === "INVALID") {
+            this.props.history.push("/")
+            window.alert("Wrong Username or Password, please try again. :)")
+          } else {
           localStorage.setItem("token", data.jwt)
           //localStorage.setItem("rounds", data.user.rounds)
           this.setState({currentUser: data.user, userRounds: data.user.rounds }, ()=> this.props.history.push("/games"))
+          }
         })
     
    }
+
+  //  localStorage.setItem("token", data.jwt)
+  //  //localStorage.setItem("rounds", data.user.rounds)
+  //  this.setState({currentUser: data.user, userRounds: data.user.rounds }, ()=> this.props.history.push("/games"))
+ 
+
 
     createHandler = (userInfo) => {
         
@@ -63,8 +74,13 @@ class App extends React.Component {
         fetch('http://localhost:3000/api/v1/new', configObj)
           .then(response => response.json())
           .then(data => {
+            if(data.error === 'failed to create user'){
+                this.props.history.push("/")
+                window.alert("Username already exists, think outside the box.")
+            } else {
             localStorage.setItem("token", data.jwt)
             this.setState({currentUser: data.user }, ()=> this.props.history.push("/games"))
+            }
           })
     }
 
@@ -114,6 +130,27 @@ class App extends React.Component {
       
     }
 
+      deleteHandler = () => {
+        
+        const options = {
+          method: 'DELETE'
+        }
+        
+        fetch(`http://localhost:3000/api/v1/users/${this.state.currentUser.id}`, options)
+          .then( () =>
+            {
+            localStorage.removeItem("token")
+            this.setState(
+            {
+              currentUser : null,
+              userRounds: []
+            }, () => {
+            this.props.history.push("/")
+            window.alert("Account Deleted, Bye!")}
+            )}
+            )
+          //push to a different location --create user page
+      }
 
   render() {
     
@@ -127,7 +164,7 @@ class App extends React.Component {
                 ? 
                 <>
                   <Route path="/games" render={() => <MainContainer currentUser={this.state.currentUser} newRound={this.newRound}/> } />
-                  <Route path={`/user/${this.state.currentUser.id}`} render={() => <UserProfile userRounds={this.state.userRounds} currentUser={this.state.currentUser} /> } />
+                  <Route path={`/user/${this.state.currentUser.id}`} render={() => <UserProfile deleteHandler={this.deleteHandler} userRounds={this.state.userRounds} currentUser={this.state.currentUser} /> } />
                   <Route path={"/topscores"} render={() => <TopScores />}/>
                 </>
                 :

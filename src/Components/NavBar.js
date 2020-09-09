@@ -3,7 +3,6 @@ import React from 'react'
 import {Menu, Segment} from 'semantic-ui-react'
 
 function NavBar(props) {
-    console.log(props.currentUser)
     return (
         
         <ul>
