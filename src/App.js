@@ -3,7 +3,6 @@ import './App.css';
 import MainContainer from './Containers/MainContainer'
 import NavBar from './Components/NavBar'
 import LoginForm from './Components/LoginForm'
-import Header from './Components/Header'
 import { Route, Switch, withRouter } from 'react-router-dom'
 import UserProfile from './Components/UserProfile'
 import SignupForm from './Components/SignupForm'
@@ -174,7 +173,6 @@ class App extends React.Component {
     return (
         <>
           <NavBar clearUser={this.clearUser} currentUser={this.state.currentUser} />
-          <Header />
           
           <Switch>
               {this.state.currentUser 

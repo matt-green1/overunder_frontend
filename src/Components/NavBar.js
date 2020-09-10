@@ -16,8 +16,8 @@ function NavBar(props) {
                             <Menu.Item name='All Games' href='/games' />
                             <Menu.Item name='Top Scores' href='/topscores' />
                         </Menu>
-                        <Menu className="right menu" inverted>
-                            <Menu.Item><i className="hand point up outline icon"></i>Over/Under&nbsp;<i className="hand point down outline icon"></i></Menu.Item>
+                        <Menu id='marginfix' className="right menu" inverted>
+                            <Menu.Item ><i className="hand point up outline icon"></i>Over/Under&nbsp;<i className="hand point down outline icon"></i></Menu.Item>
                         </Menu>
                      </Segment>
                     

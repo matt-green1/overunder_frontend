@@ -41,42 +41,45 @@ class TopScores extends React.Component {
     render() {
         
         return(
-            <>
+            <div className='bigdaddy'>
             <Animation />
-            <div className="scores">
-                <h1>Top Scores</h1>
-                <table  id="center" className="ui very basic collapsing celled table">
-                    <thead>
-                        <tr>
-                            <th>Place</th>
-                            <th>Name</th>
-                            <th>Score</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {this.state.users.slice(0,10).map((user, index)=> {
-                        return(
-                            <tr key={user.index}>
-                                <td>{index + 1}</td>
-                                <td>
-                                    {/* {user.name} */}
-                                    <Header as='h4' image>
-                                        <Image src={user.avatar} rounded size='mini' />
-                                        <Header.Content>
-                                        {user.name}
-                                        {/* <Header.Subheader>Human Resources</Header.Subheader> */}
-                                        </Header.Content>
-                                    </Header>
+                <div className="scorescontainer">
 
-                                </td>
-                                <td>{user.score}</td>
-                            </tr>
-                        )
-                        })}
-                    </tbody>
-                </table>
+                    <div className="scores">
+                        <h1>Top Scores</h1>
+                        <table  id="center" className="ui very basic collapsing celled table">
+                            <thead>
+                                <tr>
+                                    <th>Place</th>
+                                    <th>Name</th>
+                                    <th>Score</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {this.state.users.slice(0,10).map((user, index)=> {
+                                return(
+                                    <tr key={user.index}>
+                                        <td>{index + 1}</td>
+                                        <td>
+                                            {/* {user.name} */}
+                                            <Header as='h4' image>
+                                                <Image src={user.avatar} rounded size='mini' />
+                                                <Header.Content>
+                                                {user.name}
+                                                {/* <Header.Subheader>Human Resources</Header.Subheader> */}
+                                                </Header.Content>
+                                            </Header>
+
+                                        </td>
+                                        <td>{user.score}</td>
+                                    </tr>
+                                )
+                                })}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
             </div>
-            </>
         )
     }
 }

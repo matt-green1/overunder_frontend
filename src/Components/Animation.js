@@ -21,6 +21,8 @@ class Animation extends Component {
           time={40} /* time of animation */
           size={'50px'} /* size of the rendered images */
           background={'aquamarine'} /* color of background */
+          overflow={"scroll"}
+
         />
       </div>
     );

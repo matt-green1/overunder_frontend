@@ -47,9 +47,6 @@ class SignupForm extends React.Component {
                     </Form>
                 </Segment>
 
-                
-          
-                
             </>
         )
     }

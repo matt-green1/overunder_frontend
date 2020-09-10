@@ -22,7 +22,7 @@ class GameCard extends React.Component {
                         <Card.Content>
                         <Card.Header>{this.props.gameObject.title}</Card.Header>
                         <Card.Meta>
-                            <span className='date'>Created in 2020</span>
+                            <span className='date'>Questions: {this.props.gameObject.questions.length}</span>
                         </Card.Meta>
                         <Card.Description>
                         {this.props.gameObject.description}

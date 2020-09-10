@@ -27,8 +27,8 @@ class LoginForm extends React.Component {
 
     render(){
         return(
-            <>
-                <Animation />
+            <div>
+                <Animation id="ourSky" />
                 <Segment className='signup' inverted>
                     <h2 className='scores'>Log In:</h2>
                     <Form inverted onSubmit={this.submitHelper}>
@@ -53,7 +53,7 @@ class LoginForm extends React.Component {
         
                 <p>Don't have an Account?</p>
                 <button onClick={this.goToSignup}>Sign Up Here</button> */}
-            </>
+            </div>
         )
     }
 }

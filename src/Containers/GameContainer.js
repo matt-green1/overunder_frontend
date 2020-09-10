@@ -11,14 +11,18 @@ class GameContainer extends React.Component {
 
     render() {
         return (
-            <>
-                    <h3 className="gametitle">I'm the Game Container (I Hold ALLLLLL the games!) </h3>
+            <div className="gameContainer">
+                    <h1 className="gametitle">
+                        <img id="leftimage" src="https://img.icons8.com/ios-filled/50/000000/joystick.png"/>&nbsp;  
+                        Choose a Game 
+                        &nbsp;<img id="rightimage" src="https://img.icons8.com/ios/50/000000/joystick.png"/>
+                    </h1>
                 <Card.Group centered>
                     {this.createGameCards()}
 
                 </Card.Group>
                 
-            </>
+            </div>
         )
     }
 
