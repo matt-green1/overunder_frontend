@@ -2,6 +2,7 @@ import React from 'react'
 import GameContainer from './GameContainer'
 import {withRouter} from 'react-router-dom'
 import GameShow from '../Components/GameShow'
+// import Animation from "../Components/Animation"
 
 class MainContainer extends React.Component {
     
@@ -33,6 +34,7 @@ class MainContainer extends React.Component {
         
         return(
             <>
+                {/* <Animation /> */}
                 {this.state.newgame ?
                     <GameShow newRound={this.props.newRound} viewGames={this.viewGames} newgame={this.state.newgame} />
                     :

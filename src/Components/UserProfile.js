@@ -1,5 +1,6 @@
 import React from 'react'
-import { Card, Icon, Image, Button } from 'semantic-ui-react'
+import { Card, Image, Button, Form } from 'semantic-ui-react'
+import Animation from './Animation'
 
 class UserProfile extends React.Component {
     
@@ -43,6 +44,7 @@ class UserProfile extends React.Component {
 
     return (
         <>
+            <Animation/>
             <Card className='profilecards'>
                 <Image src={this.props.currentUser.avatar} wrapped ui={false} />
                 <Card.Content>
@@ -61,21 +63,26 @@ class UserProfile extends React.Component {
                         </> 
                         :
                         <>
-                            <form onSubmit={this.submitHelper} >
+                            
+                            <Form onSubmit={this.submitHelper} >                               
+                               
+                                 <Form.Input fluid type="text" name="newAvatar" onChange={this.formController} value={this.state.newAvatar}/>
+                                                                
+                                    
+                            </Form>
+                            <br></br>
+                            {/* <form onSubmit={this.submitHelper} >
                                 <input type="text" name="newAvatar" onChange={this.formController} value={this.state.newAvatar} />
                                 <input type="submit" value="Submit Image" />
-                            </form><br/>
+                            </form><br/> */}
                             <Button onClick={this.editHandler} circular >Cancel Edit</Button>
-                            {/* <Button onClick={this.props.deleteHandler} circular >Submit Image</Button> */}
+                            <Button onClick={this.submitHelper} circular >Submit Image</Button>
                         </> 
                     }
                 </Card.Content>
             
             </Card>
-            {/* <h5>Name: {props.currentUser.username}</h5>
-            <h5>Average Score: {average.toFixed(2)}</h5> */}
-            {/* <h5>All time Ranking: 5</h5> */}
-            {/* <h5>Title: Yung Gamer</h5> */}
+            
         </>
     )
         }

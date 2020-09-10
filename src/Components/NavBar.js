@@ -24,32 +24,15 @@ function NavBar(props) {
                 </>
             :   
                     <>
-                        {window.location.pathname === '/' ?
                           
                             <Segment className='ui top fixed menu' inverted>
 
-                                <Menu inverted pointing secondary>
-                                    <Menu.Item name='Log In' href='/login' />
-                                </Menu>
-
-
                                 <Menu className="right menu" inverted>
                                     <Menu.Item><i className="hand point up outline icon"></i>Over/Under&nbsp;<i className="hand point down outline icon"></i></Menu.Item>
 
                                 </Menu>
                             </Segment>
-                            :
-
-                            <Segment className='ui top fixed menu' inverted>
-                                <Menu inverted pointing secondary>
-                                    <Menu.Item name='Create Account' href='/' />
-                                </Menu>
-
-                                <Menu className="right menu" inverted>
-                                    <Menu.Item><i className="hand point up outline icon"></i>Over/Under&nbsp;<i className="hand point down outline icon"></i></Menu.Item>
-                                </Menu>
-                            </Segment>
-                        }
+                           
                     </>
             }
 

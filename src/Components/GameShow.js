@@ -1,5 +1,7 @@
 import React from 'react'
 import Question from './Question'
+import { Button, Image, Card,  } from 'semantic-ui-react'
+import Animation from './Animation'
 
 class GameShow extends React.Component {
     
@@ -52,11 +54,25 @@ class GameShow extends React.Component {
         
         return(
           <>
+            <Animation />
             {this.state.liveGame === true ? this.questionObjectCreator() : 
               <>
-                <h1>Results Page</h1>
-                <p>Total Score: {this.state.totalScore}</p>
-                <button onClick={this.props.viewGames}>See all Games</button>
+                <Card className='questioncards'>
+              <Image src={this.props.newgame.image_url} wrapped ui={false} />
+              <Card.Content>
+                <Card.Header>Results Page</Card.Header>
+                <Card.Meta>
+                  <span > Game Completed</span>
+                </Card.Meta>
+                Total Score: {this.state.totalScore}
+              </Card.Content>
+              <Card.Content extra>
+              
+              <Button onClick={this.props.viewGames}>See all Games</Button>
+             
+                </Card.Content>
+            </Card>
+
               </>
             }
                 

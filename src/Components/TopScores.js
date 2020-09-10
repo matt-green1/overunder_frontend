@@ -1,4 +1,6 @@
 import React from 'react'
+import {Header, Image} from 'semantic-ui-react'
+import Animation from './Animation'
 
 class TopScores extends React.Component {
 
@@ -24,7 +26,7 @@ class TopScores extends React.Component {
 
             
 
-            return {name: user.username, score: average >= 0 ? parseFloat(average.toFixed(2)): 0, index: user.id}
+            return {name: user.username, score: average >= 0 ? parseFloat(average.toFixed(2)): 0, index: user.id, avatar: user.avatar}
          } )
         
          let sorted = avgArray.sort(function (a, b) {
@@ -39,6 +41,8 @@ class TopScores extends React.Component {
     render() {
         
         return(
+            <>
+            <Animation />
             <div className="scores">
                 <h1>Top Scores</h1>
                 <table  id="center" className="ui very basic collapsing celled table">
@@ -54,7 +58,17 @@ class TopScores extends React.Component {
                         return(
                             <tr key={user.index}>
                                 <td>{index + 1}</td>
-                                <td>{user.name}</td>
+                                <td>
+                                    {/* {user.name} */}
+                                    <Header as='h4' image>
+                                        <Image src={user.avatar} rounded size='mini' />
+                                        <Header.Content>
+                                        {user.name}
+                                        {/* <Header.Subheader>Human Resources</Header.Subheader> */}
+                                        </Header.Content>
+                                    </Header>
+
+                                </td>
                                 <td>{user.score}</td>
                             </tr>
                         )
@@ -62,6 +76,7 @@ class TopScores extends React.Component {
                     </tbody>
                 </table>
             </div>
+            </>
         )
     }
 }

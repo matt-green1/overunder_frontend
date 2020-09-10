@@ -58,6 +58,7 @@
 .ui.card.gamecards {
   display: inline-block;
   margin: 10px 10px;
+  filter: drop-shadow(10px 10px 10px black)
 }
 
 .gametitle {
@@ -71,6 +72,7 @@
   margin-top: 50px;
   margin-left: auto;
   margin-right: auto;
+  filter: drop-shadow(10px 10px 10px black)
 }
 
 .ui.card.profilecards {
@@ -78,10 +80,25 @@
   margin-top: 50px;
   margin-left: auto;
   margin-right: auto;
+  filter: drop-shadow(10px 10px 10px black)
+}
+
+.ui.segment.signup {
+  margin-top: 50px;
+}
+
+.already {
+  float: right;
+}
+
+#donthave {
+  margin-left: 85%;
+ 
 }
 
 .scores {
   text-align: center;
+  margin-top: 50px
 }
 
 #center {
