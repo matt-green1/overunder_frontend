@@ -38,9 +38,17 @@ class Question extends React.Component {
         
     }
     
+    incrementor = () => {
+      this.props.nextHelper()
+      this.setState({
+        answered: false,
+        correct: null 
+      })
+    }
     
     render() {
-        return (
+     
+      return (
             <>
             {this.state.answered === false ? 
             <>
@@ -49,7 +57,7 @@ class Question extends React.Component {
               <Card.Content>
                 <Card.Header>{this.props.questionObject.question}</Card.Header>
                 <Card.Meta>
-                  <span >Question 1</span>
+                  <span >Question {this.props.qNum}</span>
                 </Card.Meta>
                   Over Under Line: {this.props.questionObject.over_under_line}
               </Card.Content>
@@ -81,7 +89,7 @@ class Question extends React.Component {
                     <Card.Content>
                       <Card.Header>{this.props.questionObject.question}</Card.Header>
                       <Card.Meta>
-                        <span >Question 1</span>
+                      <span >Question {this.props.qNum}</span>
                       </Card.Meta>
                         Over Under Line: {this.props.questionObject.over_under_line}
                         <Card.Meta>
@@ -92,7 +100,7 @@ class Question extends React.Component {
                     <Progress percent={100} success>
                        You're correct!
                     </Progress>
-                    <Button onClick={this.props.nextHelper} icon fluid labelPosition='right'>
+                    <Button onClick={this.incrementor} icon fluid labelPosition='right'>
                        Next Question
                       <Icon name='right arrow' />
                     </Button>
@@ -107,7 +115,7 @@ class Question extends React.Component {
                     <Card.Content>
                       <Card.Header>{this.props.questionObject.question}</Card.Header>
                       <Card.Meta>
-                        <span >Question 1</span>
+                        <span >Question {this.props.qNum}</span>
                       </Card.Meta>
                         Over Under Line: {this.props.questionObject.over_under_line}
                         <Card.Meta>
@@ -118,7 +126,7 @@ class Question extends React.Component {
                     <Progress percent={100} error>
                        Wrong!
                     </Progress>
-                    <Button onClick={this.props.nextHelper} icon fluid labelPosition='right'>
+                    <Button onClick={this.incrementor} icon fluid labelPosition='right'>
                        Next Question
                       <Icon name='right arrow' />
                     </Button>
