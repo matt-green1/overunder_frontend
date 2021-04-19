@@ -8,7 +8,7 @@ class SignupForm extends React.Component {
     state = {
         username: "",
         password: "",
-        avatar: ""
+        avatar: "https://bit.ly/3v3AHjv"
     }
 
     changeHelper = (e) => {
@@ -40,7 +40,7 @@ class SignupForm extends React.Component {
                     </Form.Group>
                     
                     <span className="already">Already Have an account?</span>
-                    <Form.Checkbox label='I agree to the Terms and Conditions' />
+                    {/* <Form.Checkbox label='I agree to the Terms and Conditions' /> */}
                     <Button type='submit'>Sign Up</Button>
                     <Button floated='right' onClick={this.goToLogin}>Login Here</Button>
                     
