@@ -17,7 +17,7 @@ class GameContainer extends React.Component {
                         Choose a Game 
                         &nbsp;<img id="rightimage" src="https://img.icons8.com/ios/50/000000/joystick.png"/>
                     </h1>
-                <Card.Group centered>
+                <Card.Group centered >
                     {this.createGameCards()}
 
                 </Card.Group>

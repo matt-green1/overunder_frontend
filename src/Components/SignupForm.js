@@ -40,7 +40,7 @@ class SignupForm extends React.Component {
                             <Form.Group id="signupformstyle">
                                 <Form.Input className="signupinput" fluid name='username' type='text' label='Create Username' placeholder='Username' value={this.state.username} onChange={this.changeHelper} />
                                 <Form.Input className="signupinput" fluid name='password' type='password' label='Create Password' placeholder='Password' value={this.state.password} onChange={this.changeHelper}/>
-                                <Form.Input className="signupinput" fluid name='avatar' type='text' label='Input Image URL' placeholder='Avatar URL' value={this.state.avatar} onChange={this.changeHelper} />
+                                <Form.Input className="signupinput" fluid name='avatar' type='text' label='Profile Image URL' placeholder='Avatar URL' value={this.state.avatar} onChange={this.changeHelper} />
                                 <Button id="signupsubmit" type='submit'>Sign Up</Button>
                             </Form.Group>
                             
