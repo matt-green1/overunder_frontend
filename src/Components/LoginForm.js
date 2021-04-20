@@ -30,18 +30,19 @@ class LoginForm extends React.Component {
             <div>
                 <Animation id="ourSky" />
                 <Segment className='signup' inverted>
-                    <h2 className='scores'>Log In:</h2>
-                    <Form inverted onSubmit={this.submitHelper}>
-                    <Form.Group widths='equal'>
-                        <Form.Input fluid name='username' type='text' label='Enter Username' placeholder='Username' value={this.state.username} onChange={this.changeHelper} />
-                        <Form.Input fluid name='password' type='password' label='Enter Password' placeholder='Password' value={this.state.password} onChange={this.changeHelper}/>
-                    </Form.Group>
                     
-                    <p id="donthave">Don't have an Account?</p>
-                    <Button type='submit'>Log In</Button>
-                    <Button floated='right' onClick={this.goToSignup}>Sign Up Here</Button>
-                    
-                    </Form>
+                        <h2 className='scores'>Log In:</h2>
+                        <Form inverted onSubmit={this.submitHelper}>
+                            <Form.Group widths='equal'>
+                                <Form.Input fluid name='username' type='text' label='Enter Username' placeholder='Username' value={this.state.username} onChange={this.changeHelper} />
+                                <Form.Input fluid name='password' type='password' label='Enter Password' placeholder='Password' value={this.state.password} onChange={this.changeHelper}/>
+                            </Form.Group>
+                            
+                            <p id="donthave">Don't have an Account?</p>
+                            <Button type='submit'>Log In</Button>
+                            <Button floated='right' onClick={this.goToSignup}>Sign Up Here</Button>
+                        </Form>
+                   
                 </Segment>
                 
             </div>

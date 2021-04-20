@@ -31,20 +31,27 @@ class SignupForm extends React.Component {
 
 
                 <Segment className='signup' inverted>
-                    <h2 className='scores'>Create Account:</h2>
-                    <Form inverted onSubmit={this.submitHelper}>
-                    <Form.Group widths='equal'>
-                        <Form.Input fluid name='username' type='text' label='Create Username' placeholder='Username' value={this.state.username} onChange={this.changeHelper} />
-                        <Form.Input fluid name='password' type='password' label='Create Password' placeholder='Password' value={this.state.password} onChange={this.changeHelper}/>
-                        <Form.Input fluid name='avatar' type='text' label='Input Image URL' placeholder='Avatar URL' value={this.state.avatar} onChange={this.changeHelper} />
-                    </Form.Group>
                     
-                    <span className="already">Already Have an account?</span>
-                    {/* <Form.Checkbox label='I agree to the Terms and Conditions' /> */}
-                    <Button type='submit'>Sign Up</Button>
-                    <Button floated='right' onClick={this.goToLogin}>Login Here</Button>
-                    
-                    </Form>
+                        <h2 className='scores'>Create Account:</h2>
+                        
+                        <Form inverted onSubmit={this.submitHelper} >
+                            {/* note - start with the props for this form.group - maybe takw off equal and justify content in the group? */}
+                            {/* <Form.Group widths='equal'> */}
+                            <Form.Group id="signupformstyle">
+                                <Form.Input className="signininput" fluid name='username' type='text' label='Create Username' placeholder='Username' value={this.state.username} onChange={this.changeHelper} />
+                                <Form.Input className="signininput" fluid name='password' type='password' label='Create Password' placeholder='Password' value={this.state.password} onChange={this.changeHelper}/>
+                                <Form.Input className="signininput" fluid name='avatar' type='text' label='Input Image URL' placeholder='Avatar URL' value={this.state.avatar} onChange={this.changeHelper} />
+                                <Button id="signinsubmit" type='submit'>Sign Up</Button>
+                            </Form.Group>
+                            
+                            <div id="already">
+                                <p>Already Have an account?</p>
+                                <Button onClick={this.goToLogin} size="tiny" id="tologinpage">Login Here</Button>
+                            </div>
+                        
+                            {/* <Form.Checkbox label='I agree to the Terms and Conditions' /> */}
+                        </Form>
+        
                 </Segment>
 
             </>

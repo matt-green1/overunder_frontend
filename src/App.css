@@ -27,6 +27,61 @@
   }
 }
 
+/*  --------- signup page ----------------- */
+
+div.ui.inverted.segment.signup {
+  margin-top: 150px;
+  padding-bottom: 30px;
+  width: 70%;
+  border-radius: 11px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#signupformstyle {
+  justify-content: center;
+  margin-top: 25px;
+}
+
+div.field.signininput {
+  width: 275px;
+}
+
+#signinsubmit {
+  width: 100px;
+  height: 39px;
+  margin-top: 22px;
+  margin-left: 5px;
+}
+
+
+#tologinpage {
+  text-align: center;
+  justify-content: center;
+}
+
+#already {
+  margin-top: 25px;
+  justify-content: center;
+  text-align: center;
+}
+
+
+
+/* --------------------------------------- */
+
+
+/*  --------- login page ----------------- */
+
+#donthave {
+  margin-left: 85%;
+ 
+}
+
+/*  -------------------------- */
+
+
+
 .App-header {
   background-color: #282c34;
   min-height: 100vh;
@@ -93,18 +148,8 @@ div.ui.card.gamecards {
   filter: drop-shadow(10px 10px 10px black)
 }
 
-.ui.segment.signup {
-  margin-top: 120px;
-}
 
-.already {
-  float: right;
-}
 
-#donthave {
-  margin-left: 85%;
- 
-}
 
 .scores {
   text-align: center;
