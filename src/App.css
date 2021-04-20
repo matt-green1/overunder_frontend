@@ -43,11 +43,11 @@ div.ui.inverted.segment.signup {
   margin-top: 25px;
 }
 
-div.field.signininput {
+div.field.signupinput {
   width: 275px;
 }
 
-#signinsubmit {
+#signupsubmit {
   width: 100px;
   height: 39px;
   margin-top: 22px;
@@ -60,7 +60,7 @@ div.field.signininput {
   justify-content: center;
 }
 
-#already {
+#tologinwrapper {
   margin-top: 25px;
   justify-content: center;
   text-align: center;
@@ -73,9 +73,35 @@ div.field.signininput {
 
 /*  --------- login page ----------------- */
 
-#donthave {
-  margin-left: 85%;
- 
+div.ui.inverted.segment.login {
+  margin-top: 150px;
+  padding-bottom: 30px;
+  width: 51%;
+  border-radius: 11px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#loginformstyle {
+  justify-content: center;
+  margin-top: 25px;
+}
+
+div.field.logininput {
+  width: 275px;
+}
+
+#loginsubmit {
+  width: 100px;
+  height: 39px;
+  margin-top: 22px;
+  margin-left: 5px;
+}
+
+#tosignupwrapper {
+  margin-top: 25px;
+  justify-content: center;
+  text-align: center;
 }
 
 /*  -------------------------- */

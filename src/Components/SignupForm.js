@@ -38,13 +38,13 @@ class SignupForm extends React.Component {
                             {/* note - start with the props for this form.group - maybe takw off equal and justify content in the group? */}
                             {/* <Form.Group widths='equal'> */}
                             <Form.Group id="signupformstyle">
-                                <Form.Input className="signininput" fluid name='username' type='text' label='Create Username' placeholder='Username' value={this.state.username} onChange={this.changeHelper} />
-                                <Form.Input className="signininput" fluid name='password' type='password' label='Create Password' placeholder='Password' value={this.state.password} onChange={this.changeHelper}/>
-                                <Form.Input className="signininput" fluid name='avatar' type='text' label='Input Image URL' placeholder='Avatar URL' value={this.state.avatar} onChange={this.changeHelper} />
-                                <Button id="signinsubmit" type='submit'>Sign Up</Button>
+                                <Form.Input className="signupinput" fluid name='username' type='text' label='Create Username' placeholder='Username' value={this.state.username} onChange={this.changeHelper} />
+                                <Form.Input className="signupinput" fluid name='password' type='password' label='Create Password' placeholder='Password' value={this.state.password} onChange={this.changeHelper}/>
+                                <Form.Input className="signupinput" fluid name='avatar' type='text' label='Input Image URL' placeholder='Avatar URL' value={this.state.avatar} onChange={this.changeHelper} />
+                                <Button id="signupsubmit" type='submit'>Sign Up</Button>
                             </Form.Group>
                             
-                            <div id="already">
+                            <div id="tologinwrapper">
                                 <p>Already Have an account?</p>
                                 <Button onClick={this.goToLogin} size="tiny" id="tologinpage">Login Here</Button>
                             </div>
