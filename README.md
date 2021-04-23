@@ -1,12 +1,18 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Over/Under
 
-## Over/Under
+## Description
+Over/Under is a trivia app featuring themed games that involve guessing if a numerical answer is above or below a provided number. Users can create an account, customize their profile, and track their average score over time against other users via a leaderboard. 
 
+## Demo
+Demo coming soon!
 
+## Prerequisites
+React, Rails, PostgreSQL
 
-### `Description`
+## Libraries 
+Semantic UI
+[React Sky](https://github.com/lucagez/sky)
 
-Over/Under is a trivia game application, where users can log-in or create accounts, and then play a variety of themed trivia games for high scores, which are averaged on our leaderboard. Each game has different categories and the questions are based on guessing over OR under a particular figure/fact.
 
 ### `Installation`
 
@@ -17,10 +23,32 @@ If you'd like you can also fork and load the site in developement, in conjunctio
 
 There are a few gems built into this repo of note. You can find out more about each Gem in the links below:<br>
 
-[React Sky](https://github.com/lucagez/sky)
 
+## Installation Instructions
 
-### License
+1. Fork and clone <a href="https://github.com/matt-green1/Flatogatchi_Backend">back end repo</a>.
+
+2. Set up back end. In terminal, enter:
+
+```
+cd Flatogatchi_Backend
+bundle install
+rails db:create
+rails db:migrate
+rails db:seed
+rails s
+```
+3. Fork and clone this (front end) repo.
+
+4. Set up front end. Open another terminal tab and enter:
+
+```
+cd Flatogatchi_Frontend
+open index.html
+
+```
+
+## License
 
 MIT License
 
