@@ -7,31 +7,21 @@ Over/Under is a trivia app featuring themed games that involve guessing if a num
 Demo coming soon!
 
 ## Prerequisites
-React, Rails, PostgreSQL
+React, Rails, PostgreSQL, npm or yarn
 
 ## Libraries 
-Semantic UI
-[React Sky](https://github.com/lucagez/sky)
-
-
-### `Installation`
-
-To view the site, I recommend going to the live [over/under](https://over-under-app.herokuapp.com/) site hosted on heroku.<br><br>
-If you'd like you can also fork and load the site in developement, in conjunction with the rails backend [here](https://github.com/elandau91/mod4-game-backend). When loading the site through the repos, make sure to run the rails server on the backend before doing the npm start or yarn start in this repo.
-
-### `Special Gems`
-
-There are a few gems built into this repo of note. You can find out more about each Gem in the links below:<br>
+- [Semantic UI] (https://react.semantic-ui.com/)
+- [React Sky](https://github.com/lucagez/sky)
 
 
 ## Installation Instructions
 
-1. Fork and clone <a href="https://github.com/matt-green1/Flatogatchi_Backend">back end repo</a>.
+1. Fork and clone <a href="https://github.com/matt-green1/overunder_backend">back end repo</a>.
 
 2. Set up back end. In terminal, enter:
 
 ```
-cd Flatogatchi_Backend
+cd overunder_backend
 bundle install
 rails db:create
 rails db:migrate
@@ -43,8 +33,8 @@ rails s
 4. Set up front end. Open another terminal tab and enter:
 
 ```
-cd Flatogatchi_Frontend
-open index.html
+cd overunder_frontend
+npm or yarn start
 
 ```
 
