@@ -4,7 +4,7 @@
 Over/Under is a trivia app featuring themed games that involve guessing if a numerical answer is above or below a provided number. Users can create an account, customize their profile, and track their average score over time against other users via a leaderboard. 
 
 ## Demo
-Demo coming soon!
+You can watch video demo <a href="https://www.youtube.com/watch?v=JCH6onb_iUg&ab_channel=MatthewGreen">here</a>.
 
 ## Prerequisites
 React, Rails, PostgreSQL, npm or yarn
