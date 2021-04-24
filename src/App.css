@@ -27,6 +27,10 @@
   }
 }
 
+body {
+  background-color: aquamarine!important;
+}
+
 /*  --------- signup page ----------------- */
 
 div.ui.inverted.segment.signup {
@@ -141,6 +145,8 @@ div.ui.card.gamecards {
   /* display: inline-block; */
   margin: 18px 40px;
   filter: drop-shadow(10px 10px 10px black);
+  text-align: center;
+  width: 400px;
 }
 
 
@@ -160,7 +166,13 @@ div.ui.card.gamecards {
   margin-left: auto;
   margin-right: auto;
   filter: drop-shadow(10px 10px 10px black);
-  width: 400px;
+  width: 500px;
+  text-align: center;
+
+}
+
+#questiontext {
+  margin-top: 15px;
 }
 
 .ui.card.profilecards {
@@ -168,15 +180,26 @@ div.ui.card.gamecards {
   margin-top: 120px;
   margin-left: auto;
   margin-right: auto;
-  filter: drop-shadow(10px 10px 10px black)
+  filter: drop-shadow(10px 10px 10px black);
+  width: 500px;
+  text-align: center;
 }
 
-
+#profileusername {
+  margin-top: 15px;
+  margin-bottom: 15px;
+  /* margin: 5px, 0px, 15px, 0px; */
+}
 
 
 .scores {
   text-align: center;
   
+}
+
+#topscoretable {
+  width: 500px;
+  height: 700px;
 }
 
 #center {

@@ -55,11 +55,12 @@ class Question extends React.Component {
               <Card className='questioncards'>
               <Image src={this.props.questionObject.img_url} wrapped ui={false} />
               <Card.Content>
-                <Card.Header>{this.props.questionObject.question}</Card.Header>
-                <Card.Meta>
+                <Card.Header id="questiontext">{this.props.questionObject.question}</Card.Header>
+                <br/>
+                <Card.Meta >
                   <span >Question {this.props.qNum}</span>
                 </Card.Meta>
-                  Over Under Line: {this.props.questionObject.over_under_line}
+                  <h4>Over Under Line: {this.props.questionObject.over_under_line}</h4>
               </Card.Content>
               <Card.Content extra>
               <div className='ui two buttons'>

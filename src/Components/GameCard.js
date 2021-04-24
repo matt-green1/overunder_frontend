@@ -17,7 +17,7 @@ class GameCard extends React.Component {
     render() {
             return(
                 <>
-                     <Card className="gamecards">
+                     <Card className="gamecards" flui={true}>
                         <Image src={this.props.gameObject.image_url} wrapped ui={false} />
                         <Card.Content>
                         <Card.Header>{this.props.gameObject.title}</Card.Header>

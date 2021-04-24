@@ -48,8 +48,8 @@ class UserProfile extends React.Component {
             <Card className='profilecards'>
                 <Image src={this.props.currentUser.avatar} wrapped ui={false} />
                 <Card.Content>
-                <Card.Header>{this.props.currentUser.username}</Card.Header>
-                <Card.Meta>Joined in 2020</Card.Meta>
+                <Card.Header id="profileusername">Username: {this.props.currentUser.username}</Card.Header>
+                <Card.Meta>Joined in 2021</Card.Meta>
                 <Card.Description>
                     Average Score: {average.toFixed(2)}
                 </Card.Description>
@@ -58,7 +58,7 @@ class UserProfile extends React.Component {
                 <Card.Content extra>   
                     {this.state.edit === false ?    
                         <>
-                            <Button onClick={this.editHandler} circular >Edit</Button>
+                            <Button onClick={this.editHandler} circular >Edit Profile Image</Button>
                             <Button onClick={this.props.deleteHandler} circular >Delete Account</Button>
                         </> 
                         :

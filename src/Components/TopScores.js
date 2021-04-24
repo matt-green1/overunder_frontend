@@ -47,7 +47,7 @@ class TopScores extends React.Component {
 
                     <div className="scores">
                         <h1>Top Scores</h1>
-                        <table  id="center" className="ui very basic collapsing celled table">
+                        <table  id="topscoretable" className="ui very basic collapsing celled table">
                             <thead>
                                 <tr>
                                     <th>Place</th>
