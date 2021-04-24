@@ -42,7 +42,7 @@ npm or yarn start
 
 MIT License
 
-Copyright (c) [2020] [Eli Landau]
+Copyright (c) [2020]
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
