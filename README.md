@@ -1,30 +1,48 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Over/Under
 
-## Over/Under
+## Description
+Over/Under is a trivia app featuring themed games that involve guessing if a numerical answer is above or below a provided number. Users can create an account, customize their profile, and track their average score over time against other users via a leaderboard. 
 
+## Demo
+Demo coming soon!
 
+## Prerequisites
+React, Rails, PostgreSQL, npm or yarn
 
-### `Description`
-
-Over/Under is a trivia game application, where users can log-in or create accounts, and then play a variety of themed trivia games for high scores, which are averaged on our leaderboard. Each game has different categories and the questions are based on guessing over OR under a particular figure/fact.
-
-### `Installation`
-
-To view the site, I recommend going to the live [over/under](https://over-under-app.herokuapp.com/) site hosted on heroku.<br><br>
-If you'd like you can also fork and load the site in developement, in conjunction with the rails backend [here](https://github.com/elandau91/mod4-game-backend). When loading the site through the repos, make sure to run the rails server on the backend before doing the npm start or yarn start in this repo.
-
-### `Special Gems`
-
-There are a few gems built into this repo of note. You can find out more about each Gem in the links below:<br>
-
-[React Sky](https://github.com/lucagez/sky)
+## Libraries 
+- [Semantic UI] (https://react.semantic-ui.com/)
+- [React Sky](https://github.com/lucagez/sky)
 
 
-### License
+## Installation Instructions
+
+1. Fork and clone <a href="https://github.com/matt-green1/overunder_backend">back end repo</a>.
+
+2. Set up back end. In terminal, enter:
+
+```
+cd overunder_backend
+bundle install
+rails db:create
+rails db:migrate
+rails db:seed
+rails s
+```
+3. Fork and clone this (front end) repo.
+
+4. Set up front end. Open another terminal tab and enter:
+
+```
+cd overunder_frontend
+npm or yarn start
+
+```
+
+## License
 
 MIT License
 
-Copyright (c) [2020] [Eli Landau]
+Copyright (c) [2020]
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
