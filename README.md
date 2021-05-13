@@ -7,7 +7,7 @@ Over/Under is a trivia app featuring themed games that involve guessing if a num
 You can watch video demo <a href="https://www.youtube.com/watch?v=JCH6onb_iUg&ab_channel=MatthewGreen">here</a>.
 
 ## Prerequisites
-React, Rails, PostgreSQL, npm or yarn
+React, Rails, PostgreSQL, npm.
 
 ## Libraries 
 - [Semantic UI] (https://react.semantic-ui.com/)
